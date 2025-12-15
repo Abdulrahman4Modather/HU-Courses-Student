@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>HU Courses | Courses</title>
+
+        <!-- Bootstrap -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/assets/css/all.min.css" rel="stylesheet" />
+
+        <!-- Custom Styles -->
+
+        <link rel="stylesheet" href="/assets/css/style.css" />
+
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/all.min.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="container my-5">
+            <h3 class="mb-3">All Courses</h3>
+
+            <section class="row mb-4">
+                <div class="filter">
+                    <div class="input-group">
+                        <p class="input-group-text m-auto">Search & Filter:</p>
+                        <input
+                            type="text"
+                            id="search-input"
+                            class="form-control w-25"
+                            placeholder="Search by course name"
+                        />
+                        <select id="fields-filter" class="form-select">
+                            <option value="">All Feilds</option>
+                        </select>
+                        <select id="status-filter" class="form-select">
+                            <option value="">All Status</option>
+                        </select>
+                        <select id="instructors-filter" class="form-select">
+                            <option value="">All Instructors</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <div class="row g-4" id="coursesContainer">
+                    <!-- ongoing cards via JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Custom JS -->
+        <script src="/assets/js/auth.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/courses.js"></script>
+    </body>
+</html>

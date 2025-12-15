@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up - مهارات</title>
+        <link rel="stylesheet" href="/assets/login/style.css" />
+    </head>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <img
+                    src="/assets/images/HU-logo.png"
+                    alt="University Logo"
+                    class="logo"
+                />
+                <h1>مهارات</h1>
+            </div>
+        </header>
+
+        <main class="form-container">
+            <form id="signupForm" class="form-box">
+                <h3>Student Sign Up</h3>
+
+                <label for="name">Name</label>
+                <input type="text" id="name" required />
+
+                <label for="nationalId">National ID</label>
+                <input type="text" id="nationalId" required />
+
+                <label for="email">Email</label>
+                <input type="text" id="email" required />
+
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" required />
+
+                <label for="password">Password</label>
+                <input type="password" id="password" required />
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required />
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+
+                <p
+                    id="successMsg"
+                    class="success-message"
+                    style="display: none"
+                ></p>
+                <p id="errorMsg" class="error-message"></p>
+            </form>
+        </main>
+
+        <script src="/assets/login/signup.js"></script>
+    </body>
+</html>

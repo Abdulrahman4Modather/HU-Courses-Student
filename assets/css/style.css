@@ -1,0 +1,412 @@
+/* ---------- 0. Importing fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+@font-face {
+    font-family: IBM Plex Sans;
+    src: url('/public/fonts/IBM_Plex_Sans/IBMPlexSans-VariableFont_wdth\,wght.ttf') format('tff');
+
+    font-family: IBM Plex Sans Arabic;
+    src: url('/public/fonts/IBM_Plex_Sans_Arabic/IBMPlexSansArabic-Regular.ttf') format('tff');
+
+    font-family: Al-Mohanad;
+    src: url('/public/fonts/Al-Mohanad_Bold/Al-Mohanad_Bold.ttf') format('tff');
+}
+
+/* ---------- 1. Color Theme Variables ---------- */
+:root {
+    --hu-primary: #064566;
+    --hu-info: #1fb6d3;
+    --hu-danger: #E01C46;
+    --hu-warning: #F8BA39;
+    --hu-success: #0FA958;
+    --hu-dark: #062d40;
+    --hu-light: #f7f7f7;
+
+    --hu-font-en: IBM Plex Sans, 'Segoe UI', 'Helvetica Neue', Arial;
+    --hu-font-ar: IBM Plex Sans Arabic, Al-Mohanad, 'Segoe UI', 'Helvetica Neue', Arial;
+
+    --hu-radius: 0.5rem;
+    --hu-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- 2. Global Body ---------- */
+body {
+    font-family: var(--hu-font-en);
+    background-color: var(--hu-light);
+    color: #212529;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--hu-font-en);
+    font-weight: 600;
+    color: var(--hu-dark);
+}
+
+/* Search results module (autocomplete / suggestions) */
+.search-wrapper {
+    position: relative;
+    /* ensures the module positions relative to the search input */
+}
+
+.search-results-module {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 8px);
+    /* place right below the input */
+    z-index: 1050;
+    width: min(820px, 90vw);
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.search-results-module .results-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-results-module .result-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.search-results-module .result-item+.result-item {
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.search-results-module .result-item img {
+    width: 64px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.search-results-module .result-item .meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-results-module .result-item .title {
+    font-weight: 600;
+    color: var(--hu-dark);
+}
+
+.search-results-module .empty {
+    padding: 12px;
+    color: #666;
+}
+
+a {
+    color: var(--hu-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--hu-info);
+}
+
+/* ---------- 3. Navbar ---------- */
+.navbar.bg-hu {
+    background-color: var(--hu-primary) !important;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-brand img {
+    height: 85px;
+    width: auto;
+}
+
+.brand-ar {
+    font-family: var(--hu-font-ar);
+    font-size: 2rem;
+}
+
+/* ---------- 4. Sidebar ---------- */
+aside {
+    background-color: var(--hu-dark);
+    min-height: 84.77vh;
+}
+
+.sidebar {
+    background-color: var(--hu-dark);
+    color: #fff;
+    padding: 1rem;
+    position: fixed;
+}
+
+.sidebar .nav-link {
+    color: #e5e5e5;
+    border-radius: var(--hu-radius);
+    padding: 0.5rem 0.75rem;
+    font-weight: 500;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(97, 201, 219, 0.15);
+    color: #fff;
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--hu-info);
+    font-weight: 600;
+}
+
+/* ---------- 5. Cards ---------- */
+.card {
+    border-radius: var(--hu-radius);
+    box-shadow: var(--hu-shadow);
+    border: none;
+    width: 100%;
+    color: #fff;
+}
+
+.card-pending {
+    background-color: var(--hu-danger);
+}
+
+.card-in_progress {
+    background-color: var(--hu-info);
+}
+
+.card-resolved {
+    background-color: var(--hu-success);
+}
+
+.card_header {
+    font-weight: 600;
+    color: #fff;
+}
+
+.card-body {
+    background-color: #fff;
+}
+
+/* KPI cards */
+.kpi-card {
+    border-left: 4px solid var(--hu-info);
+}
+
+.kpi-card.success {
+    border-left-color: var(--hu-success);
+}
+
+.kpi-card.warning {
+    border-left-color: var(--hu-warning);
+}
+
+.kpi-card.danger {
+    border-left-color: var(--hu-danger);
+}
+
+/* ---------- 6. Buttons ---------- */
+.btn-primary {
+    background-color: var(--hu-primary);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #013752;
+}
+
+.btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: var(--hu-primary);
+}
+
+/* ---------- 7. Tables ---------- */
+.table thead {
+    background-color: var(--hu-light);
+    color: var(--hu-primary);
+    font-weight: 600;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: rgba(97, 201, 219, 0.03);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(97, 201, 219, 0.1);
+}
+
+/* Status badges */
+.badge-hu-warning {
+    background-color: var(--hu-warning);
+    color: #fff;
+}
+
+.badge-hu-info {
+    background-color: var(--hu-info);
+    color: #fff;
+}
+
+.badge-hu-success {
+    background-color: var(--hu-success);
+    color: #fff;
+}
+
+.badge-hu-danger {
+    background-color: var(--hu-danger);
+    color: #fff;
+}
+
+/* ---------- 8. Forms ---------- */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--hu-info);
+    box-shadow: 0 0 0 0.2rem rgba(97, 201, 219, 0.25);
+}
+
+/* ---------- 9. Utility Classes ---------- */
+.text-hu-primary {
+    color: var(--hu-primary) !important;
+}
+
+.text-hu-info {
+    color: var(--hu-info) !important;
+}
+
+.text-hu-danger {
+    color: var(--hu-danger) !important;
+}
+
+.text-hu-success {
+    color: var(--hu-success) !important;
+}
+
+.text-hu-warning {
+    color: var(--hu-warning) !important;
+}
+
+.bg-hu-primary {
+    background-color: var(--hu-primary) !important;
+}
+
+.bg-hu-info {
+    background-color: var(--hu-info) !important;
+}
+
+.bg-hu-dark {
+    background-color: var(--hu-dark) !important;
+}
+
+.bg-hu-light {
+    background-color: var(--hu-light) !important;
+}
+
+.rounded-hu {
+    border-radius: var(--hu-radius) !important;
+}
+
+.shadow-hu {
+    box-shadow: var(--hu-shadow) !important;
+}
+
+/* ---------- 10. Responsive tweaks ---------- */
+@media (max-width: 991px) {
+    .sidebar {
+        position: relative;
+        min-height: auto;
+    }
+
+    .linksContainer {
+        align-items: center;
+    }
+}
+
+/* ---------- 11. Equal-width helper for dashboard second row ---------- */
+.equal-row .col-12.col-lg-6 {
+    display: flex;
+}
+
+.equal-row .col-12.col-lg-6>* {
+    /* Make the inner section take the full column space */
+    flex: 1 1 auto;
+}
+
+/* ---------- 12.Dashboard chart sizing: keep charts compact on the dashboard ----------*/
+.chart {
+    height: 350px;
+    /* reduce default chart height to make it smaller */
+}
+
+.chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+    /* Chart.js will fill the parent when maintainAspectRatio=false */
+    max-height: 350px;
+}
+
+/* ---------- Course card helpers ---------- */
+.course-col {
+    display: flex;
+}
+
+.course-col .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* ensure equal-height cards */
+}
+
+.card-img-top-wrapper {
+    position: relative;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.card-img-top-wrapper img.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.enrolled-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ffffffcc;
+    color: var(--hu-dark);
+    padding: 4px 8px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    box-shadow: var(--hu-shadow);
+}
+
+/* Visually emphasise enrolled cards for debugging/visibility */
+/* .card.enrolled {
+    border: 2px solid var(--hu-info);
+    box-shadow: 0 10px 30px rgba(31,182,211,0.08);
+} */
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.card .btn-row {
+    margin-top: auto;
+    /* push buttons to bottom so cards align */
+}

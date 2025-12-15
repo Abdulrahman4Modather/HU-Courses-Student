@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "student_id": 123,
+        "course_id": 101,
+        "enrollment_date": "2025-09-25"
+    },
+    {
+        "id": 2,
+        "student_id": 123,
+        "course_id": 201,
+        "enrollment_date": "2025-09-28"
+    },
+    {
+        "id": 3,
+        "student_id": 456,
+        "course_id": 102,
+        "enrollment_date": "2025-09-20"
+    },
+    {
+        "id": 4,
+        "student_id": 789,
+        "course_id": 302,
+        "enrollment_date": "2025-10-02"
+    },
+    {
+        "id": 5,
+        "student_id": 789,
+        "course_id": 103,
+        "enrollment_date": "2025-10-10"
+    },
+    {
+        "id": 6,
+        "student_id": 101,
+        "course_id": 301,
+        "enrollment_date": "2025-10-05"
+    }
+]

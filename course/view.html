@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>HU Courses | Course Profile</title>
+
+        <!-- Bootstrap -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/assets/css/all.min.css" rel="stylesheet" />
+
+        <!-- Custom Styles -->
+
+        <link rel="stylesheet" href="/assets/css/style.css" />
+
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/all.min.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <!-- Main content: course header, description, tabs for sessions/materials -->
+        <main class="container my-5">
+            <div class="mb-3">
+                <a href="/mycourses.html" class="btn btn-outline-secondary"
+                    >← return to my courses</a
+                >
+            </div>
+
+            <section id="courseHeader" class="mb-4">
+                <!-- populated by JS -->
+            </section>
+
+            <section id="courseDescription" class="mb-4">
+                <!-- populated by JS -->
+            </section>
+
+            <section id="courseTabs">
+                <ul class="nav nav-tabs mb-3" id="courseTabList" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link active"
+                            id="sessions-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#sessions"
+                            type="button"
+                            role="tab"
+                            aria-controls="sessions"
+                            aria-selected="true"
+                        >
+                            Sessions
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link"
+                            id="materials-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#materials"
+                            type="button"
+                            role="tab"
+                            aria-controls="materials"
+                            aria-selected="false"
+                        >
+                            Materials
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div
+                        class="tab-pane fade show active"
+                        id="sessions"
+                        role="tabpanel"
+                        aria-labelledby="sessions-tab"
+                    >
+                        <div
+                            id="sessionsList"
+                            class="list-group rounded p-3 bg-white shadow-sm"
+                            style="min-height: 160px"
+                        >
+                            <!-- sessions inserted here -->
+                        </div>
+                    </div>
+                    <div
+                        class="tab-pane fade"
+                        id="materials"
+                        role="tabpanel"
+                        aria-labelledby="materials-tab"
+                    >
+                        <div
+                            id="materialsList"
+                            class="list-group rounded p-3 bg-white shadow-sm"
+                            style="min-height: 160px"
+                        >
+                            <!-- materials inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Custom JS -->
+        <script src="/assets/js/auth.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/course-view.js"></script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Dr. Alan Grant",
+        "email": "alan.grant@hu.edu.eg",
+        "phone": "0123456789",
+        "passowrd": "inst001"
+    },
+    {
+        "id": 2,
+        "name": "Dr. Mohamed Ali",
+        "email": "mohamed.ali@hu.edu.eg",
+        "phone": "222222222",
+        "passowrd": "inst002"
+    },
+    {
+        "id": 3,
+        "name": "Dr. Sarah Lee",
+        "email": "sarah.lee@hu.edu.eg",
+        "phone": "999999999",
+        "passowrd": "inst003"
+    },
+    {
+        "id": 4,
+        "name": "Dr. Ian Malcolm",
+        "email": "ian.malcolm@hu.edu.eg",
+        "phone": "9876543210",
+        "passowrd": "inst004"
+    }
+]

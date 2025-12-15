@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "session_id": 1001,
+        "title": "Course Syllabus",
+        "type": "pdf",
+        "file": "#",
+        "uploaded_at": "2025-10-01"
+    },
+    {
+        "id": 2,
+        "session_id": 1001,
+        "title": "Introduction Slides",
+        "type": "ppt",
+        "file": "#",
+        "uploaded_at": "2025-10-01"
+    },
+    {
+        "id": 3,
+        "session_id": 1002,
+        "title": "Programming Basics Slides",
+        "type": "ppt",
+        "file": "#",
+        "uploaded_at": "2025-10-08"
+    },
+    {
+        "id": 4,
+        "session_id": 2001,
+        "title": "Database Concepts Notes",
+        "type": "pdf",
+        "file": "#",
+        "uploaded_at": "2025-09-21"
+    },
+    {
+        "id": 5,
+        "session_id": 3001,
+        "title": "Web Introduction Reading",
+        "type": "pdf",
+        "file": "#",
+        "uploaded_at": "2025-11-10"
+    }
+]

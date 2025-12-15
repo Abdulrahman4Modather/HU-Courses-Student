@@ -1,0 +1,72 @@
+[
+    {
+        "id": 101,
+        "title": "Introduction to Programming in C++",
+        "field": "Computer Science",
+        "instructor_id": 1,
+        "thumbnail": "/assets/images/courses/cpp.jpg",
+        "status": "ongoing",
+        "start_date": "2025-10-01",
+        "sessions": 12
+    },
+    {
+        "id": 102,
+        "title": "Backend Development by Node JS",
+        "field": "Computer Science",
+        "instructor_id": 1,
+        "thumbnail": "/assets/images/courses/node.webp",
+        "status": "ongoing",
+        "start_date": "2025-09-15",
+        "sessions": 14
+    },
+    {
+        "id": 103,
+        "title": "Web Development Fundamentals",
+        "field": "Computer Science",
+        "instructor_id": 2,
+        "thumbnail": "/assets/images/courses/web.png",
+        "status": "upcoming",
+        "start_date": "2026-1-10",
+        "sessions": 10
+    },
+    {
+        "id": 201,
+        "title": "Learn SQL using PostgreSQL",
+        "field": "Information Systems",
+        "instructor_id": 4,
+        "thumbnail": "/assets/images/courses/postgresql.png",
+        "status": "ongoing",
+        "start_date": "2025-09-20",
+        "sessions": 14
+    },
+    {
+        "id": 301,
+        "title": "English at Work Environment",
+        "field": "Language",
+        "instructor_id": 3,
+        "thumbnail": "/assets/images/courses/english.webp",
+        "status": "upcoming",
+        "start_date": "2026-2-05",
+        "sessions": 8
+    },
+    {
+        "id": 302,
+        "title": "Backend Development by PHP",
+        "field": "Computer Science",
+        "instructor_id": 3,
+        "thumbnail": "/assets/images/courses/php.webp",
+        "status": "completed",
+        "start_date": "2024-10-05",
+        "sessions": 10
+    },
+    {
+        "id": 302,
+        "title": "Introduction to Programming in Python",
+        "field": "Computer Science",
+        "instructor_id": 3,
+        "thumbnail": "/assets/images/courses/python.jpg",
+        "status": "ongoing",
+        "start_date": "2025-10-05",
+        "sessions": 10
+    }
+]

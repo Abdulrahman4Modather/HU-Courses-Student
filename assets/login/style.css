@@ -1,0 +1,213 @@
+/* Custom Fonts and Basic Reset */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+@font-face {
+    font-family: IBM Plex Sans;
+    src: url('/public/fonts/IBM_Plex_Sans/IBMPlexSans-VariableFont_wdth\,wght.ttf') format('tff');
+
+    font-family: IBM Plex Sans Arabic;
+    src: url('/public/fonts/IBM_Plex_Sans_Arabic/IBMPlexSansArabic-Regular.ttf') format('tff');
+
+    font-family: Al-Mohanad;
+    src: url('/public/fonts/Al-Mohanad_Bold/Al-Mohanad_Bold.ttf') format('tff');
+}
+
+/* For Arabic support */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: IBM Plex Sans, Al-Mohanad, Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* === Header Styles (login/signup) === */
+header {
+    width: 100%;
+    background-color: #064566;
+    /* Dark blue background */
+    color: white;
+    padding: 20px 0;
+}
+
+.header-content {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Adjusted for image alignment */
+    padding: 0 40px;
+    width: 100%;
+}
+
+.header-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-right: 40px;
+    /* Space between logo and title */
+    font-family: 'Cairo', sans-serif;
+    /* Use Cairo for 'شكوتي' */
+    direction: rtl;
+    /* For Arabic text */
+}
+
+.logo {
+    height: 100px;
+    /* Adjust height as needed */
+    width: auto;
+    /* Move logo to the left, or adjust flex behavior */
+    order: -1;
+}
+
+/* === Form Styles (login/signup) === */
+.form-container {
+    padding: 40px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-box {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form-box h3 {
+    color: #064566;
+}
+
+.form-box label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="password"],
+.form-box select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.form-box input[type="radio"] {
+    padding: 10px 12px;
+    width: auto;
+    font-size: 16px;
+}
+
+.roles_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.show-btn {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-left: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+    height: 40px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* === Generic Button Styles === */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-primary {
+    background-color: #062d40;
+    color: white;
+    border: 1px solid #062d40;
+}
+
+.btn-primary:hover {
+    background-color: #062d40;
+}
+
+.btn-transparent {
+    background-color: #6C757D;
+    color: black;
+    border: none;
+    margin-top: 10px;
+    width: auto;
+    /* Smaller width for 'sign up' link */
+    align-self: center;
+}
+
+.btn-transparent:hover {
+    text-decoration: underline;
+}
+
+.signup_container {
+    text-align: center;
+    margin-top: 12px;
+    color: #6C757D;
+}
+
+.signup_container a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.signup_container a:hover {
+    color: #ffffff;
+}
+
+/* Success message for forms */
+.success-message {
+    color: #2e7d32;
+    /* green */
+    text-align: center;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+/* Error message for forms */
+.error-message {
+    color: #c62828;
+    /* red */
+    text-align: center;
+    margin-top: 12px;
+    font-weight: 600;
+}

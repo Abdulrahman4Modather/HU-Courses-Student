@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>University Platform | Home</title>
+
+        <!-- Bootstrap -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/assets/css/all.min.css" rel="stylesheet" />
+
+        <!-- Custom Styles -->
+
+        <link rel="stylesheet" href="/assets/css/style.css" />
+
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/all.min.js"></script>
+    </head>
+    <body>
+        <!-- ================= NAVBAR ================= -->
+        <div id="headerContainer"></div>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="container my-5">
+            <!-- Quick Search -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="search-wrapper position-relative">
+                        <input
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="Search for courses..."
+                            id="searchInput"
+                        />
+                        <!-- Search results module (shown while typing) - will be positioned as an overlay under the input -->
+                        <div
+                            id="searchResultsModule"
+                            class="search-results-module"
+                            style="display: none"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= ONGOING / UPCOMING COURSES ================= -->
+            <section id="ongoingSection" class="mb-5">
+                <h3 class="mb-3">Ongoing Courses</h3>
+                <div class="row g-4" id="ongoingCourses">
+                    <!-- ongoing cards via JS -->
+                </div>
+                <div class="text-center mt-3">
+                    <a href="/courses.html" class="text-hu-info"
+                        >View All Courses →</a
+                    >
+                </div>
+            </section>
+
+            <section id="upcomingSection" class="mb-5">
+                <h3 class="mb-3">Upcoming Courses</h3>
+                <div class="row g-4" id="upcomingCourses">
+                    <!-- upcoming cards via JS -->
+                </div>
+                <div class="text-center mt-3">
+                    <a href="/courses.html" class="text-hu-info"
+                        >View All Courses →</a
+                    >
+                </div>
+            </section>
+        </main>
+
+        <!-- Custom JS -->
+        <script src="/assets/js/auth.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/home.js"></script>
+    </body>
+</html>

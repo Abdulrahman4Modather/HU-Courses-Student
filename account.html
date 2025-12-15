@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HU Courses | My Account</title>
+
+    <!-- Bootstrap -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/assets/css/all.min.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+        <link rel="stylesheet" href="/assets/css/style.css" />
+
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/all.min.js"></script></head>
+<body>
+
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+<div class="container-fluid">
+            <div class="row">
+                <!-- Main -->
+                <main
+                    class="col-lg-10 container d-lg-block p-4 bg-hu-light gap-5"
+                >
+                    <div class="row mb-2">
+                        <h1>My Profile</h1>
+                    </div>
+                    <div class="row p-2 bg-white border border-3 rounded-4">
+                        <div class="row">
+                            <!-- Left: Profile -->
+                            <div class="col-lg-6">
+                                <div class="tab-content p-3" id="myTabContent">
+                                    <!-- Profile Tab -->
+                                    <div
+                                        class="tab-pane fade show active text-black"
+                                        id="profile"
+                                        role="tabpanel"
+                                        aria-labelledby="profile-tab"
+                                    >
+                                        <form id="accountForm">
+                                            <h5>Personal Information</h5>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label for="userName" class="form-label">Full Name</label>
+                                                    <input type="text" class="form-control bg-light" id="userName" />
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label for="userId" class="form-label">National ID</label>
+                                                    <input type="text" class="form-control bg-light" id="userId" readonly />
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label for="userEmail" class="form-label">Email</label>
+                                                    <input type="text" class="form-control bg-light" id="userEmail"   />
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label for="userPhone" class="form-label">Phone</label>
+                                                    <input type="text" class="form-control bg-light" id="userPhone"  />
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <!-- toggle edit/save for personal info; not a form submit -->
+                                                    <button type="button" class="btn btn-primary" id="saveChangesBtn">Edit Info</button>
+                                                </div>
+                                            </div>
+
+                                            <hr />
+                                            <h5 class="mt-4">Change Password</h5>
+                                            <div class="mb-3">
+                                                <label for="currentPassword" class="form-label">Current Password</label>
+                                                <input type="password" class="form-control" id="currentPassword" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="newPassword" class="form-label">New Password</label>
+                                                <input type="password" class="form-control" id="newPassword" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" id="updatePasswordBtn">Update Password</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Enrollment history -->
+                            <div class="col-lg-6">
+                                <div class="p-3">
+                                    <h5>Enroll History</h5>
+                                    <div class="table-responsive border rounded bg-white p-2" style="min-height:240px;">
+                                        <table class="table table-sm mb-0" id="enrollHistoryTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Course Name</th>
+                                                    <th>Enrollment Date</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="enrollHistoryBody">
+                                                <!-- rows injected by JS -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+
+<!-- Custom JS -->
+<script src="/assets/js/auth.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/account.js"></script>
+</body>
+</html>

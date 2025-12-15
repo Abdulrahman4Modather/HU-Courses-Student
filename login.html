@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login - مهارات</title>
+        <link rel="stylesheet" href="/assets/login/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <img
+                    src="/assets/images/HU-logo.png"
+                    alt="University Logo"
+                    class="logo"
+                />
+                <h1>مهارات</h1>
+            </div>
+        </header>
+
+        <main class="form-container">
+            <form id="loginForm" class="form-box">
+                <h3>Login</h3>
+
+                <label for="emailInput">Email / ID</label>
+                <input type="text" id="emailInput" required />
+
+                <label for="passwordInput">Password</label>
+                <div class="password-container">
+                    <input type="password" id="passwordInput" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+
+                <div class="signup_container">
+                    Don't have an Account Yet
+                    <a class="btn btn-transparent" href="signup.html"
+                        >Sign Up</a
+                    >
+                </div>
+
+                <p id="errorMsg" class="error-message"></p>
+            </form>
+        </main>
+
+        <script src="/assets/login/login.js"></script>
+    </body>
+</html>

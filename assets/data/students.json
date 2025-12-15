@@ -1,0 +1,30 @@
+[
+    {
+        "nationalId": "123",
+        "name": "Amina Khalil",
+        "email": "student1001@hu.edu",
+        "phone": "22222222",
+        "pass": "student1"
+    },
+    {
+        "nationalId": "456",
+        "name": "Omar Hassan",
+        "email": "student1002@hu.edu",
+        "phone": "666666666",
+        "pass": "student2"
+    },
+    {
+        "nationalId": "789",
+        "name": "Layla Adel",
+        "email": "student1003@hu.edu",
+        "phone": "999999999",
+        "pass": "student3"
+    },
+    {
+        "nationalId": "101",
+        "name": "Mona Khaled",
+        "email": "student1015@hu.edu",
+        "phone": "154065487",
+        "pass": "student4"
+    }
+]
