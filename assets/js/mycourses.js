@@ -73,7 +73,7 @@
         const status = (statusText || "").toLowerCase();
         const statusContainer = document.createElement("div");
         const statusStrong = document.createElement("strong");
-        statusStrong.textContent = "Status:";
+        statusStrong.textContent = "الحالة:";
         const statusSpan = document.createElement("span");
         statusSpan.className =
             status === "ongoing"
@@ -89,7 +89,7 @@
 
         const startContainer = document.createElement("div");
         const startStrong = document.createElement("strong");
-        startStrong.textContent = "Start Date:";
+        startStrong.textContent = "تاريخ البدء:";
         startContainer.appendChild(startStrong);
         startContainer.appendChild(
             document.createTextNode(" " + formatDate(course.start_date))
@@ -97,14 +97,14 @@
 
         const sessionsContainer = document.createElement("div");
         const sessionsStrong = document.createElement("strong");
-        sessionsStrong.textContent = "Sessions:";
+        sessionsStrong.textContent = "الجلسات:";
         sessionsContainer.appendChild(sessionsStrong);
         sessionsContainer.appendChild(
             document.createTextNode(" " + (course.sessions || ""))
         );
         sessionsContainer.appendChild(document.createTextNode(" \u00A0 "));
         const instStrong = document.createElement("strong");
-        instStrong.textContent = "Instructor:";
+        instStrong.textContent = "المحاضر:";
         sessionsContainer.appendChild(instStrong);
         sessionsContainer.appendChild(
             document.createTextNode(
@@ -118,8 +118,8 @@
 
         const stats = document.createElement("div");
         stats.className = "small text-black";
-        stats.innerHTML = `<div>Completed Sessions: <strong>${completedCount}</strong></div>
-            <div>Next Session: <strong>${
+        stats.innerHTML = `<div>الجلسات المكتملة: <strong>${completedCount}</strong></div>
+            <div>الجلسة القادمة: <strong>${
                 nextSession
                     ? formatDate(nextSession.date) +
                       " · " +
@@ -133,7 +133,7 @@
         const details = document.createElement("a");
         details.className = "btn btn-warning";
         details.href = `/course/view.html?id=${encodeURIComponent(course.id)}`;
-        details.textContent = "View Details";
+        details.textContent = "عرض التفاصيل";
         right.appendChild(details);
 
         body.appendChild(title);
@@ -247,7 +247,7 @@
                 enrolledContainer.innerHTML = "";
                 if (enrolledCourses.length === 0) {
                     enrolledContainer.innerHTML =
-                        '<div class="text-muted">You are not enrolled in any courses.</div>';
+                        '<div class="text-muted">لست مسجلاً في أي دورة.</div>';
                 } else {
                     enrolledCourses.forEach((c) => {
                         const inst = iMap[c.instructor_id];
@@ -306,7 +306,7 @@
 
                 if (upcomingAll.length === 0) {
                     upcomingContainer.innerHTML =
-                        '<div class="text-muted">No upcoming sessions.</div>';
+                        '<div class="text-muted">لا توجد جلسات قادمة.</div>';
                 } else {
                     upcomingAll.slice(0, 6).forEach((s) => {
                         const course = (courses || []).find(

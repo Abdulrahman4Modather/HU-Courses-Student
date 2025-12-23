@@ -17,17 +17,17 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
 
     // Validate
     if (!name || !nationalId || !email || !password) {
-        errorMsg.textContent = "Please fill in all required fields.";
+        errorMsg.textContent = "الرجاء تعبئة جميع الحقول المطلوبة.";
         return;
     }
 
     if (password !== confirmPassword) {
-        errorMsg.textContent = "Passwords do not match.";
+        errorMsg.textContent = "كلمتا المرور غير متطابقتين.";
         return;
     }
 
     if (password.length < 6) {
-        errorMsg.textContent = "Password must be at least 6 characters.";
+        errorMsg.textContent = "يجب أن تكون كلمة المرور 6 أحرف على الأقل.";
         return;
     }
 
@@ -74,11 +74,11 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
                 localStorage.setItem("students", JSON.stringify([newStudent]));
             }
             successMsg.textContent =
-                "Account created locally. Redirecting to login...";
+                "تم إنشاء الحساب محلياً. جاري التحويل لتسجيل الدخول...";
             successMsg.style.display = "block";
         } catch (err) {
             console.error("Failed to save locally", err);
-            errorMsg.textContent = "Could not save account locally.";
+            errorMsg.textContent = "لا يمكن حفظ الحساب محلياً.";
             return;
         }
 
@@ -88,6 +88,6 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
         }, 2000);
     } catch (err) {
         console.error(err);
-        errorMsg.textContent = "Error creating account: " + err.message;
+        errorMsg.textContent = "خطأ في إنشاء الحساب: " + err.message;
     }
 });

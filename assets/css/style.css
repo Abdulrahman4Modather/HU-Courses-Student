@@ -22,16 +22,15 @@
     --hu-dark: #062d40;
     --hu-light: #f7f7f7;
 
-    --hu-font-en: IBM Plex Sans, 'Segoe UI', 'Helvetica Neue', Arial;
     --hu-font-ar: IBM Plex Sans Arabic, Al-Mohanad, 'Segoe UI', 'Helvetica Neue', Arial;
 
     --hu-radius: 0.5rem;
-    --hu-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --hu-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 /* ---------- 2. Global Body ---------- */
 body {
-    font-family: var(--hu-font-en);
+    font-family: var(--hu-font-ar);
     background-color: var(--hu-light);
     color: #212529;
     overflow-x: hidden;
@@ -43,7 +42,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--hu-font-en);
+    font-family: var(--hu-font-ar);
     font-weight: 600;
     color: var(--hu-dark);
 }
@@ -149,19 +148,19 @@ aside {
     position: fixed;
 }
 
-.sidebar .nav-link {
+.nav-link {
     color: #e5e5e5;
     border-radius: var(--hu-radius);
     padding: 0.5rem 0.75rem;
     font-weight: 500;
 }
 
-.sidebar .nav-link:hover {
+.nav-link:hover {
     background-color: rgba(97, 201, 219, 0.15);
     color: #fff;
 }
 
-.sidebar .nav-link.active {
+.nav-link.active {
     background-color: var(--hu-info);
     font-weight: 600;
 }
@@ -215,12 +214,12 @@ aside {
 
 /* ---------- 6. Buttons ---------- */
 .btn-primary {
-    background-color: var(--hu-primary);
+    background-color: var(--hu-dark);
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #013752;
+    background-color: var(--hu-info);
 }
 
 .btn-outline-light {
@@ -232,6 +231,11 @@ aside {
     background-color: #fff;
     color: var(--hu-primary);
 }
+
+/* .btn-warning:hover {
+    background-color: #efa209;
+    border-color: #efa209;
+} */
 
 /* ---------- 7. Tables ---------- */
 .table thead {
@@ -323,13 +327,26 @@ aside {
 
 /* ---------- 10. Responsive tweaks ---------- */
 @media (max-width: 991px) {
-    .sidebar {
-        position: relative;
-        min-height: auto;
+    .navbar>.container-fluid {
+        flex-wrap: wrap;
+        row-gap: 1rem;
     }
 
-    .linksContainer {
-        align-items: center;
+    .linksContainer,
+    .navbar .flex-fill {
+        /* Make links break to new line and centered */
+        width: 100%;
+        order: 3;
+        justify-content: center;
+    }
+
+    .logo_container {
+        display: flex !important;
+        order: 2;
+    }
+
+    .auth-container {
+        order: 1;
     }
 }
 
@@ -365,6 +382,7 @@ aside {
     display: flex;
     flex-direction: column;
     height: 100%;
+    border-radius: var(--hu-radius);
     /* ensure equal-height cards */
 }
 
@@ -372,7 +390,7 @@ aside {
     position: relative;
     height: 140px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 .card-img-top-wrapper img.card-img-top {
@@ -393,12 +411,6 @@ aside {
     font-weight: 600;
     box-shadow: var(--hu-shadow);
 }
-
-/* Visually emphasise enrolled cards for debugging/visibility */
-/* .card.enrolled {
-    border: 2px solid var(--hu-info);
-    box-shadow: 0 10px 30px rgba(31,182,211,0.08);
-} */
 
 .card-body {
     display: flex;

@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const td = document.createElement("td");
             td.setAttribute("colspan", "4");
             td.className = "text-muted";
-            td.textContent = "No enrollment history.";
+            td.textContent = "لا يوجد سجل للتسجيل.";
             tr.appendChild(td);
             enrollBody.appendChild(tr);
             return;
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             view.href = `/course/view.html?id=${encodeURIComponent(
                 en.course_id
             )}`;
-            view.textContent = "View";
+            view.textContent = "عرض";
             actionTd.appendChild(view);
 
             tr.appendChild(nameTd);
@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     if (el) el.removeAttribute("readonly");
                 });
                 if (nameInput) nameInput.focus();
-                saveBtn.textContent = "Save Changes";
+                saveBtn.textContent = "حفظ التغييرات";
                 editing = true;
                 return;
             }
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // Basic validation: name required
             if (!newName) {
-                alert("Please enter your full name.");
+                alert("الرجاء إدخال اسمك الكامل.");
                 return;
             }
 
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 );
             } catch (err) {
                 console.warn("Failed to persist student changes locally", err);
-                alert("Could not save changes locally.");
+                alert("لا يمكن حفظ التغييرات محلياً.");
                 return;
             }
 
@@ -333,9 +333,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             [nameInput, emailInput, phoneInput].forEach((el) => {
                 if (el) el.setAttribute("readonly", "readonly");
             });
-            saveBtn.textContent = "Edit Info";
+            saveBtn.textContent = "تعديل البيانات";
             editing = false;
-            alert("Profile updated locally.");
+            alert("تم تحديث الملف الشخصي محلياً.");
             // re-render the enrollment history immediately so changes appear without reload
             try {
                 renderEnrollHistory();
@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         ).trim();
 
         if (!currentPassword || !newPassword) {
-            alert("Please enter both current and new password.");
+            alert("الرجاء إدخال كلمة المرور الحالية والجديدة.");
             return;
         }
 
@@ -371,12 +371,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Validate current password against stored override (if any) or original password
         if (currentPassword !== effectivePassword) {
-            alert("Incorrect current password!");
+            alert("كلمة المرور الحالية غير صحيحة!");
             return;
         }
 
         if (newPassword.length < 6) {
-            alert("New password must be at least 6 characters.");
+            alert("يجب أن تكون كلمة المرور الجديدة 6 أحرف على الأقل.");
             return;
         }
 
@@ -384,7 +384,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Note: This does not modify server-side files — to persist to server you need an API endpoint.
         localStorage.setItem(storedPasswordKey, newPassword);
 
-        alert("Password updated successfully!");
+        alert("تم تحديث كلمة المرور بنجاح!");
 
         // clear the form fields
         const cur = document.getElementById("currentPassword");

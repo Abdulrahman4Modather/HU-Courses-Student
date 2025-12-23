@@ -48,7 +48,7 @@
         if (enrolled) {
             const badge = document.createElement("div");
             badge.className = "enrolled-badge";
-            badge.textContent = "✓ Enrolled";
+            badge.textContent = "✓ مسجل";
             imgWrapper.appendChild(badge);
             // mark card visually and for debugging
             card.classList.add("enrolled");
@@ -69,7 +69,7 @@
         const statusText = course ? course.status || "" : "";
         const status = (statusText || "").toLowerCase();
         const statusStrong = document.createElement("strong");
-        statusStrong.textContent = "Status:";
+        statusStrong.textContent = "الحالة:";
         const statusSpan = document.createElement("span");
         statusSpan.className =
             status === "ongoing"
@@ -85,7 +85,7 @@
         meta.appendChild(document.createTextNode(" \u00A0 \u00A0 "));
 
         const startStrong = document.createElement("strong");
-        startStrong.textContent = "Start Date:";
+        startStrong.textContent = "تاريخ البدء:";
         meta.appendChild(startStrong);
         meta.appendChild(
             document.createTextNode(" " + formatDate(course.start_date))
@@ -94,14 +94,14 @@
         meta.appendChild(document.createElement("br"));
 
         const sessionsStrong = document.createElement("strong");
-        sessionsStrong.textContent = "Sessions:";
+        sessionsStrong.textContent = "الجلسات:";
         meta.appendChild(sessionsStrong);
         meta.appendChild(
             document.createTextNode(" " + (course.sessions || ""))
         );
         meta.appendChild(document.createTextNode(" \u00A0 "));
         const instStrong = document.createElement("strong");
-        instStrong.textContent = "Instructor:";
+        instStrong.textContent = "المحاضر:";
         meta.appendChild(instStrong);
         meta.appendChild(
             document.createTextNode(
@@ -118,7 +118,7 @@
         detailsBtn.href = `/course/view.html?id=${encodeURIComponent(
             course.id
         )}`;
-        detailsBtn.textContent = "View Details";
+        detailsBtn.textContent = "عرض التفاصيل";
 
         // If enrolled, only show the details button. Otherwise show enroll (unless upcoming).
         if (enrolled) {
@@ -129,7 +129,7 @@
                 (course.status || "").toLowerCase() === "upcoming"
                     ? "btn btn-secondary disabled"
                     : "btn btn-primary";
-            enrollBtn.textContent = "Enroll Now";
+            enrollBtn.textContent = "سجل الآن";
             btnRow.appendChild(detailsBtn);
             btnRow.appendChild(enrollBtn);
         }
@@ -421,7 +421,7 @@
                 ) {
                     const badge = document.createElement("div");
                     badge.className = "enrolled-badge";
-                    badge.textContent = "✓ Enrolled";
+                    badge.textContent = "✓ مسجل";
                     imgWrapper.appendChild(badge);
                 }
                 const card = cardCol.querySelector(".card");
@@ -429,7 +429,7 @@
                     card.classList.add("enrolled");
                     card.dataset.enrolled = "true";
                 }
-                btn.textContent = "Enrolled";
+                btn.textContent = "مسجل";
                 btn.classList.remove("btn-primary");
                 btn.classList.add("btn-secondary");
                 btn.disabled = true;

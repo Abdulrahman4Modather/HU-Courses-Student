@@ -16,12 +16,12 @@ document
         errorMsg.textContent = "";
 
         if (!identifier) {
-            errorMsg.textContent = "Please enter your email or ID.";
+            errorMsg.textContent = "الرجاء إدخال البريد الإلكتروني أو الهوية.";
             return;
         }
 
         if (!password) {
-            errorMsg.textContent = "Please enter your password.";
+            errorMsg.textContent = "الرجاء إدخال كلمة المرور.";
             return;
         }
 
@@ -62,7 +62,8 @@ document
         });
 
         if (!user) {
-            errorMsg.textContent = "Invalid email/ID or password.";
+            errorMsg.textContent =
+                "البريد الإلكتروني/الهوية أو كلمة المرور غير صحيحة.";
             return;
         }
 
@@ -76,12 +77,13 @@ document
         const correctPassword = storedPassword ?? user[passField];
 
         if (!correctPassword) {
-            errorMsg.textContent = "Account has no password set.";
+            errorMsg.textContent = "الحساب ليس لديه كلمة مرور محددة.";
             return;
         }
 
         if (password !== correctPassword) {
-            errorMsg.textContent = "Invalid email/ID or password.";
+            errorMsg.textContent =
+                "البريد الإلكتروني/الهوية أو كلمة المرور غير صحيحة.";
             return;
         }
 

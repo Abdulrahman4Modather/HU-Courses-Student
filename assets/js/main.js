@@ -16,6 +16,25 @@
         .then((html) => {
             const container = document.getElementById("headerContainer");
             if (container) container.innerHTML = html;
+
+            // Get current file name (e.g., "students.html")
+            const currentPage =
+                window.location.pathname.split("/").pop() || "index.html";
+
+            // Highlight the matching link
+            document.querySelectorAll(".nav-link").forEach((link) => {
+                const href = link.getAttribute("href");
+
+                // Get only the file name part of the href (handles "pages/students.html", "./students.html", etc.)
+                const linkPage = href.split("/").pop();
+
+                // Compare normalized names
+                if (linkPage === currentPage) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
         })
         .catch((err) => {
             // Keep errors quiet but log for debugging

@@ -2,55 +2,55 @@
     {
         "id": 1001,
         "course_id": 101,
-        "title": "Introduction & Course Overview",
+        "title": "مقدمة ونظرة عامة على الدورة",
         "date": "2025-10-02",
         "start_time": "10:00",
-        "location": "Lab 1",
+        "location": "معمل 1",
         "status": "completed"
     },
     {
         "id": 1002,
         "course_id": 101,
-        "title": "Basics of Programming",
+        "title": "أساسيات البرمجة",
         "date": "2025-10-09",
         "start_time": "10:00",
-        "location": "Lab 1",
+        "location": "معمل 1",
         "status": "completed"
     },
     {
         "id": 1003,
         "course_id": 101,
-        "title": "Control Structures",
+        "title": "هياكل التحكم",
         "date": "2025-12-16",
         "start_time": "10:00",
-        "location": "Lab 1",
+        "location": "معمل 1",
         "status": "upcoming"
     },
     {
         "id": 2001,
         "course_id": 201,
-        "title": "Database Concepts",
+        "title": "مفاهيم قواعد البيانات",
         "date": "2025-09-22",
         "start_time": "11:00",
-        "location": "Room 205",
+        "location": "قاعة 205",
         "status": "completed"
     },
     {
         "id": 2002,
         "course_id": 201,
-        "title": "ER Modeling",
+        "title": "نمذجة العلاقات والكيانات (ER)",
         "date": "2025-09-29",
         "start_time": "11:00",
-        "location": "Room 205",
+        "location": "قاعة 205",
         "status": "completed"
     },
     {
         "id": 3001,
         "course_id": 103,
-        "title": "Introduction to Artificial Intelligence",
+        "title": "مقدمة في الذكاء الاصطناعي",
         "date": "2026-11-12",
         "start_time": "09:00",
-        "location": "Room 301",
+        "location": "قاعة 301",
         "status": "upcoming"
     }
 ]

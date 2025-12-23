@@ -59,7 +59,7 @@
         completedSessionsCount,
         isEnrolled
     ) {
-        const enrollLabel = isEnrolled ? "Enrolled" : "Enroll Now";
+        const enrollLabel = isEnrolled ? "مسجل" : "سجل الآن";
         const enrollClass = isEnrolled
             ? "btn btn-secondary disabled"
             : "btn btn-primary";
@@ -75,24 +75,24 @@
                     </div>
                 </div>
                 <div class="mt-3 row">
-                    <div class="col-md-2"><strong>Field:</strong><div>${
+                    <div class="col-md-2"><strong>المجال:</strong>${
                         course.field || ""
-                    }</div></div>
-                    <div class="col-md-2"><strong>Round:</strong><div>${
+                    }</div>
+                    <div class="col-md-2"><strong>الجولة:</strong>${
                         course.round || ""
-                    }</div></div>
-                    <div class="col-md-2"><strong>Status:</strong><div>${
+                    }</div>
+                    <div class="col-md-2"><strong>الحالة:</strong>${
                         course.status || ""
-                    }</div></div>
-                    <div class="col-md-2"><strong>Start Date:</strong><div>${
+                    }</div>
+                    <div class="col-md-2"><strong>تاريخ البدء:</strong>${
                         formatDate(course.start_date) || ""
-                    }</div></div>
-                    <div class="col-md-1"><strong>Sessions:</strong><div>${
+                    }</div>
+                    <div class="col-md-1"><strong>الجلسات:</strong>${
                         course.sessions || ""
-                    }</div></div>
-                    <div class="col-md-3"><strong>Completed Sessions:</strong><div>${completedSessionsCount}</div></div>
+                    }</div>
+                    <div class="col-md-3"><strong>الجلسات المكتملة:</strong>${completedSessionsCount}</div>
                 </div>
-                <div class="mt-2"><strong>Instructor:</strong> ${
+                <div class="mt-2"><strong>المحاضر:</strong> ${
                     instructor ? instructor.name : "TBA"
                 }</div>
             </div>
@@ -104,7 +104,7 @@
         const text =
             course.description ||
             "Put some text on the course\nWhat's about\nWhat's the outcome of the course\nWhat to do next";
-        const html = `<div class="p-3 rounded shadow-sm bg-white"><h5>Course Description</h5><div>${text.replace(
+        const html = `<div class="p-3 rounded shadow-sm bg-white"><h5>وصف الدورة</h5><div>${text.replace(
             /\n/g,
             "<br/>"
         )}</div></div>`;
@@ -140,7 +140,7 @@
         const right = document.createElement("div");
         const btn = document.createElement("a");
         btn.className = "btn btn-sm btn-primary";
-        btn.textContent = "Download";
+        btn.textContent = "تحميل";
         btn.href = m.file || "#";
         if (disabled) {
             btn.classList.add("disabled");
@@ -158,7 +158,7 @@
         const courseId = qParam("course");
         if (!courseId) {
             courseHeader.innerHTML =
-                '<div class="alert alert-danger">No course specified.</div>';
+                '<div class="alert alert-danger">لم يتم تحديد دورة.</div>';
             return;
         }
 
@@ -183,7 +183,7 @@
             );
             if (!course) {
                 courseHeader.innerHTML =
-                    '<div class="alert alert-warning">Course not found.</div>';
+                    '<div class="alert alert-warning">الدورة غير موجودة.</div>';
                 return;
             }
 
@@ -237,7 +237,7 @@
             sessionsList.innerHTML = "";
             if (courseSessions.length === 0) {
                 sessionsList.innerHTML =
-                    '<div class="text-muted">No sessions available for this course.</div>';
+                    '<div class="text-muted">لا توجد جلسات متاحة لهذه الدورة.</div>';
             } else {
                 courseSessions.forEach((s) =>
                     sessionsList.appendChild(createSessionItem(s))
@@ -258,18 +258,18 @@
                 // user not logged in -> disable tab and show login prompt
                 if (materialsTabBtn) materialsTabBtn.classList.add("disabled");
                 materialsList.innerHTML =
-                    '<div class="text-muted">Please log in and enroll to access materials.</div>';
+                    '<div class="text-muted">الرجاء تسجيل الدخول والتسجيل للوصول للمواد.</div>';
             } else if (!isEnrolled) {
                 if (materialsTabBtn) materialsTabBtn.classList.add("disabled");
                 materialsList.innerHTML =
-                    '<div class="text-muted">You must be enrolled in this course to view materials.</div>';
+                    '<div class="text-muted">يجب أن تكون مسجلاً في هذه الدورة لعرض المواد.</div>';
             } else {
                 // enabled
                 if (materialsTabBtn)
                     materialsTabBtn.classList.remove("disabled");
                 if (courseMaterials.length === 0) {
                     materialsList.innerHTML =
-                        '<div class="text-muted">No materials uploaded yet.</div>';
+                        '<div class="text-muted">لم يتم رفع أي مواد بعد.</div>';
                 } else {
                     courseMaterials.forEach((m) =>
                         materialsList.appendChild(createMaterialItem(m, false))
@@ -329,7 +329,7 @@
                     // update in-memory state and UI
                     enrolledSet.add(String(course.id));
                     isEnrolled = true;
-                    enrollBtn.textContent = "Enrolled";
+                    enrollBtn.textContent = "مسجل";
                     enrollBtn.classList.remove("btn-primary");
                     enrollBtn.classList.add("btn-secondary", "disabled");
                     enrollBtn.setAttribute("disabled", "");
@@ -340,7 +340,7 @@
                     materialsList.innerHTML = "";
                     if (courseMaterials.length === 0) {
                         materialsList.innerHTML =
-                            '<div class="text-muted">No materials uploaded yet.</div>';
+                            '<div class="text-muted">لم يتم رفع أي مواد بعد.</div>';
                     } else {
                         courseMaterials.forEach((m) =>
                             materialsList.appendChild(
@@ -363,7 +363,7 @@
         } catch (err) {
             console.error("Error loading course view data:", err);
             courseHeader.innerHTML =
-                '<div class="alert alert-danger">Failed to load course data.</div>';
+                '<div class="alert alert-danger">فشل تحميل بيانات الدورة.</div>';
         }
     })();
 })();
