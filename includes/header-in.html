@@ -1,44 +1,32 @@
-<nav class="navbar navbar-brand w-100 navbar-dark bg-hu shadow-sm">
-    <div class="container-fluid px-3 d-flex align-items-center">
-        <!-- Left: Logo and name -->
-        <div class="d-flex align-items-center gap-3">
-            <img
-                src="/assets/images/HU-logo.png"
-                alt="Logo"
-                class="rounded-circle"
-                style="height: 56px; width: 56px"
-            />
-            <div class="d-flex flex-column">
-                <span class="fw-semibold text-white">Hurghada University</span>
-                <span class="brand-ar text-white" lang="ar">جامعة الغردقة</span>
+<nav class="navbar navbar-brand w-100 mx-auto navbar-dark bg-hu shadow-sm">
+    <div
+        class="container-fluid px-3 d-flex flex-row-reverse align-items-center justify-content-between"
+    >
+        <!-- Auth (Right) -->
+        <div class="auth-container d-flex align-items-center gap-2">
+            <a class="btn btn-outline-light" href="/login.html" id="signOutBtn"
+                >تسجيل خروج</a
+            >
+        </div>
+
+        <!-- Links (Center) -->
+        <div class="d-flex justify-content-center flex-fill">
+            <div class="nav d-flex align-items-center gap-4">
+                <a class="nav-link text-white" href="/index.html">الرئيسية</a>
+                <a class="nav-link text-white" href="/courses.html">الدورات</a>
+                <a class="nav-link text-white" href="/mycourses.html">دوراتي</a>
+                <a class="nav-link text-white" href="/account.html">حسابي</a>
             </div>
         </div>
 
-        <div class="linksContainer flex-fill d-flex justify-content-between">
-            <!-- Center: Nav links -->
-            <div class="d-flex justify-content-center">
-                <div class="nav d-flex align-items-center">
-                    <a class="nav-link text-white" href="/index.html">Home</a>
-                    <a class="nav-link text-white" href="/courses.html"
-                        >Courses</a
-                    >
-                    <a class="nav-link text-white" href="/mycourses.html"
-                        >My Courses</a
-                    >
-                    <a class="nav-link text-white" href="/account.html"
-                        >My Account</a
-                    >
-                </div>
-            </div>
-
-            <!-- Right: auth area (minimal) -->
-            <div class="d-flex align-items-center ms-auto gap-2">
-                <a
-                    class="btn btn-outline-light"
-                    href="/login.html"
-                    id="signOutBtn"
-                    >Sign out</a
-                >
+        <!-- Logo (Left) -->
+        <div
+            class="logo_container d-flex align-items-center justify-content-between gap-1"
+        >
+            <img src="/assets/images/HU-logo.png" alt="Logo" />
+            <div class="d-flex flex-column">
+                <span class="fw-semibold text-white">Hurghada University</span>
+                <span class="brand-ar text-white" lang="ar">جامعة الغردقة</span>
             </div>
         </div>
     </div>

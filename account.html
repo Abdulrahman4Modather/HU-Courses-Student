@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <title>HU Courses | My Account</title>
+    <title>دورات الجامعة | حسابي</title>
 
     <!-- Bootstrap -->
         <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
                     class="col-lg-10 container d-lg-block p-4 bg-hu-light gap-5"
                 >
                     <div class="row mb-2">
-                        <h1>My Profile</h1>
+                        <h1>ملفي الشخصي</h1>
                     </div>
                     <div class="row p-2 bg-white border border-3 rounded-4">
                         <div class="row">
@@ -40,45 +40,45 @@
                                         aria-labelledby="profile-tab"
                                     >
                                         <form id="accountForm">
-                                            <h5>Personal Information</h5>
+                                            <h5>المعلومات الشخصية</h5>
                                             <div class="row g-3">
                                                 <div class="col-md-6">
-                                                    <label for="userName" class="form-label">Full Name</label>
+                                                    <label for="userName" class="form-label">الاسم الكامل</label>
                                                     <input type="text" class="form-control bg-light" id="userName" />
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <label for="userId" class="form-label">National ID</label>
+                                                    <label for="userId" class="form-label">الرقم القومي</label>
                                                     <input type="text" class="form-control bg-light" id="userId" readonly />
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <label for="userEmail" class="form-label">Email</label>
+                                                    <label for="userEmail" class="form-label">البريد الإلكتروني</label>
                                                     <input type="text" class="form-control bg-light" id="userEmail"   />
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <label for="userPhone" class="form-label">Phone</label>
+                                                    <label for="userPhone" class="form-label">رقم الهاتف</label>
                                                     <input type="text" class="form-control bg-light" id="userPhone"  />
                                                 </div>
 
                                                 <div class="col-12">
                                                     <!-- toggle edit/save for personal info; not a form submit -->
-                                                    <button type="button" class="btn btn-primary" id="saveChangesBtn">Edit Info</button>
+                                                    <button type="button" class="btn btn-primary" id="saveChangesBtn">تعديل البيانات</button>
                                                 </div>
                                             </div>
 
                                             <hr />
-                                            <h5 class="mt-4">Change Password</h5>
+                                            <h5 class="mt-4">تغيير كلمة المرور</h5>
                                             <div class="mb-3">
-                                                <label for="currentPassword" class="form-label">Current Password</label>
+                                                <label for="currentPassword" class="form-label">كلمة المرور الحالية</label>
                                                 <input type="password" class="form-control" id="currentPassword" />
                                             </div>
                                             <div class="mb-3">
-                                                <label for="newPassword" class="form-label">New Password</label>
+                                                <label for="newPassword" class="form-label">كلمة المرور الجديدة</label>
                                                 <input type="password" class="form-control" id="newPassword" />
                                             </div>
-                                            <button type="submit" class="btn btn-primary" id="updatePasswordBtn">Update Password</button>
+                                            <button type="submit" class="btn btn-primary" id="updatePasswordBtn">تحديث كلمة المرور</button>
                                         </form>
                                     </div>
                                 </div>
@@ -87,15 +87,15 @@
                             <!-- Right: Enrollment history -->
                             <div class="col-lg-6">
                                 <div class="p-3">
-                                    <h5>Enroll History</h5>
+                                    <h5>سجل التسجيل</h5>
                                     <div class="table-responsive border rounded bg-white p-2" style="min-height:240px;">
                                         <table class="table table-sm mb-0" id="enrollHistoryTable">
                                             <thead>
                                                 <tr>
-                                                    <th>Course Name</th>
-                                                    <th>Enrollment Date</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
+                                                    <th>اسم الدورة</th>
+                                                    <th>تاريخ التسجيل</th>
+                                                    <th>الحالة</th>
+                                                    <th>إجراء</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="enrollHistoryBody">
