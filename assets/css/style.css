@@ -14,25 +14,25 @@
 
 /* ---------- 1. Color Theme Variables ---------- */
 :root {
-    --hu-primary: #064566;
-    --hu-info: #1fb6d3;
-    --hu-danger: #E01C46;
-    --hu-warning: #F8BA39;
-    --hu-success: #0FA958;
-    --hu-dark: #062d40;
-    --hu-light: #f7f7f7;
+    --hu-primary: #1693B3;
+    --hu-info: #1eb6d3;
+    --hu-danger: #d63939;
+    --hu-warning: #F59500;
+    --hu-success: #2fb344;
+    --hu-dark: #1f2a37;
+    --hu-light: #f4f5f9;
 
     --hu-font-ar: IBM Plex Sans Arabic, Al-Mohanad, 'Segoe UI', 'Helvetica Neue', Arial;
 
     --hu-radius: 0.5rem;
-    --hu-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    --hu-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* ---------- 2. Global Body ---------- */
 body {
     font-family: var(--hu-font-ar);
     background-color: var(--hu-light);
-    color: #212529;
+    color: var(--hu-dark);
     overflow-x: hidden;
 }
 
@@ -421,4 +421,26 @@ aside {
 .card .btn-row {
     margin-top: auto;
     /* push buttons to bottom so cards align */
+}
+
+/* ---------- 13. Tabs Customization ---------- */
+.nav-tabs .nav-link {
+    background-color: #e9ecef;
+    color: var(--hu-dark);
+    border: 1px solid #dee2e6;
+    margin-left: 4px;
+    /* RTL spacing */
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: var(--hu-info);
+    color: #fff;
+    border-color: var(--hu-info);
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--hu-primary);
+    color: #fff;
+    border-color: var(--hu-primary);
 }
