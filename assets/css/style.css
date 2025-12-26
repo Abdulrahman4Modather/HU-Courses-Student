@@ -384,6 +384,12 @@ aside {
     height: 100%;
     border-radius: var(--hu-radius);
     /* ensure equal-height cards */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.course-col .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 .card-img-top-wrapper {
