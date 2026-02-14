@@ -450,3 +450,45 @@ aside {
     color: #fff;
     border-color: var(--hu-primary);
 }
+
+/* 14. Footer */
+.footer {
+    padding: 60px 100px 20px;
+    color: #fff;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.column-title {
+    margin-bottom: 20px;
+    color: var(--hu-primary);
+}
+
+.column__link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.column__link:hover {
+    color: var(--hu-info);
+}
+
+.footer__bottom {
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    color: var(--hu-light);
+}

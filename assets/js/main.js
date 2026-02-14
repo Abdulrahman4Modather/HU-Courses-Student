@@ -7,6 +7,7 @@
     const headerPath = isLoggedIn
         ? "/includes/header-in.html"
         : "/includes/header-out.html";
+    const footerPath = "/includes/footer.html";
 
     fetch(headerPath)
         .then((res) => {
@@ -14,8 +15,8 @@
             return res.text();
         })
         .then((html) => {
-            const container = document.getElementById("headerContainer");
-            if (container) container.innerHTML = html;
+            const headerContainer = document.getElementById("headerContainer");
+            if (headerContainer) headerContainer.innerHTML = html;
 
             // Get current file name (e.g., "students.html")
             const currentPage =
@@ -39,5 +40,18 @@
         .catch((err) => {
             // Keep errors quiet but log for debugging
             console.error("Error loading header:", err);
+        });
+
+    fetch(footerPath)
+        .then((res) => {
+            if (!res.ok) throw new Error("Failed to load footer");
+            return res.text();
+        })
+        .then((html) => {
+            const footerContainer = document.getElementById("footerContainer");
+            if (footerContainer) footerContainer.innerHTML = html;
+        })
+        .catch((err) => {
+            console.error("Error loading footer:", err);
         });
 })();
