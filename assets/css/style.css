@@ -21,6 +21,7 @@
     --hu-success: #2fb344;
     --hu-dark: #1f2a37;
     --hu-light: #f4f5f9;
+    --hu-semi-light: #dcdbdb;
 
     --hu-font-ar: IBM Plex Sans Arabic, Al-Mohanad, 'Segoe UI', 'Helvetica Neue', Arial;
 
@@ -31,7 +32,7 @@
 /* ---------- 2. Global Body ---------- */
 body {
     font-family: var(--hu-font-ar);
-    background-color: var(--hu-light);
+    background-color: var(--hu-semi-light);
     color: var(--hu-dark);
     overflow-x: hidden;
 }
@@ -61,7 +62,7 @@ h6 {
     /* place right below the input */
     z-index: 1050;
     width: min(820px, 90vw);
-    background: #fff;
+    background: var(--hu-semi-light);
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -71,6 +72,8 @@ h6 {
 .search-results-module .results-list {
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    border-radius: var(--hu-radius);
 }
 
 .search-results-module .result-item {
@@ -82,7 +85,7 @@ h6 {
 }
 
 .search-results-module .result-item+.result-item {
-    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .search-results-module .result-item img {
@@ -104,7 +107,9 @@ h6 {
 
 .search-results-module .empty {
     padding: 12px;
-    color: #666;
+    color: var(--hu-dark);
+    border: 1px solid black;
+    border-radius: var(--hu-radius);
 }
 
 a {
@@ -313,6 +318,10 @@ aside {
     background-color: var(--hu-dark) !important;
 }
 
+.bg-hu-semi-light {
+    background-color: var(--hu-semi-light) !important;
+}
+
 .bg-hu-light {
     background-color: var(--hu-light) !important;
 }
@@ -431,9 +440,9 @@ aside {
 
 /* ---------- 13. Tabs Customization ---------- */
 .nav-tabs .nav-link {
-    background-color: #e9ecef;
+    background-color: var(--hu-light);
     color: var(--hu-dark);
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
     margin-left: 4px;
     /* RTL spacing */
     transition: all 0.2s ease-in-out;

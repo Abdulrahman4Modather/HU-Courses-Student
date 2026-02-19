@@ -3,7 +3,7 @@
         "id": 1001,
         "course_id": 101,
         "title": "مقدمة ونظرة عامة على الدورة",
-        "date": "2025-10-02",
+        "date": "2025-12-01",
         "start_time": "10:00",
         "location": "معمل 1",
         "status": "completed"
@@ -12,7 +12,7 @@
         "id": 1002,
         "course_id": 101,
         "title": "أساسيات البرمجة",
-        "date": "2025-10-09",
+        "date": "2025-12-08",
         "start_time": "10:00",
         "location": "معمل 1",
         "status": "completed"
@@ -21,16 +21,44 @@
         "id": 1003,
         "course_id": 101,
         "title": "هياكل التحكم",
-        "date": "2025-12-16",
+        "date": "2025-12-15",
         "start_time": "10:00",
         "location": "معمل 1",
-        "status": "upcoming"
+        "status": "completed"
     },
+    {
+        "id": 1004,
+        "course_id": 101,
+        "title": "حالات if",
+        "date": "2025-12-22",
+        "start_time": "10:00",
+        "location": "معمل 1",
+        "status": "completed"
+    },
+    {
+        "id": 1005,
+        "course_id": 101,
+        "title": "الدوال",
+        "date": "2025-12-29",
+        "start_time": "10:00",
+        "location": "معمل 1",
+        "status": "completed"
+    },
+    {
+        "id": 1006,
+        "course_id": 101,
+        "title": "مقدمة عن البرمجة كائنية التوجه",
+        "date": "2026-1-5",
+        "start_time": "10:00",
+        "location": "معمل 1",
+        "status": "completed"
+    },
+
     {
         "id": 2001,
         "course_id": 201,
         "title": "مفاهيم قواعد البيانات",
-        "date": "2025-09-22",
+        "date": "2026-02-15",
         "start_time": "11:00",
         "location": "قاعة 205",
         "status": "completed"
@@ -39,16 +67,54 @@
         "id": 2002,
         "course_id": 201,
         "title": "نمذجة العلاقات والكيانات (ER)",
-        "date": "2025-09-29",
+        "date": "2026-02-22",
         "start_time": "11:00",
         "location": "قاعة 205",
         "status": "completed"
     },
     {
+        "id": 2003,
+        "course_id": 201,
+        "title": "الجدوال",
+        "date": "2026-03-1",
+        "start_time": "11:00",
+        "location": "قاعة 205",
+        "status": "upcoming"
+    },
+    {
+        "id": 2004,
+        "course_id": 201,
+        "title": "فلترة البيانات",
+        "date": "2026-03-8",
+        "start_time": "11:00",
+        "location": "قاعة 205",
+        "status": "upcoming"
+    },
+
+    {
         "id": 3001,
         "course_id": 103,
-        "title": "مقدمة في الذكاء الاصطناعي",
-        "date": "2026-11-12",
+        "title": "مقدمة في الويب",
+        "date": "2026-4-10",
+        "start_time": "09:00",
+        "location": "قاعة 301",
+        "status": "upcoming"
+    },
+    {
+        "id": 3002,
+        "course_id": 103,
+        "title": "لغة الترميز html",
+        "date": "2026-4-17",
+        "start_time": "09:00",
+        "location": "قاعة 301",
+        "status": "upcoming"
+    },
+
+    {
+        "id": 4001,
+        "course_id": 102,
+        "title": "مقدمة في الback-end باستخدام node js",
+        "date": "2026-3-15",
         "start_time": "09:00",
         "location": "قاعة 301",
         "status": "upcoming"
