@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <title>عرض الشهادة</title>
+
+        <!-- Bootstrap -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/assets/css/all.min.css" rel="stylesheet" />
+        <link
+            href="/assets/font-awesome-4.7.0/css/font-awesome.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Custom Styles -->
+
+        <link rel="stylesheet" href="/assets/css/style.css" />
+
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/all.min.js"></script>
+
+        <style>
+            body {
+                background: var(--hu-semi-light);
+                font-family: var(--hu-font-ar);
+            }
+
+            .certificate-wrapper {
+                max-width: 1300px;
+                margin: 1.5rem auto;
+                padding: 2rem;
+                background: #fdf6e3;
+                border: 12px solid #d4b26a;
+                border-radius: 6px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+                position: relative;
+            }
+
+            .top-bar {
+                height: 8px;
+                background: linear-gradient(
+                    to left,
+                    #1fb6d3 0%,
+                    #1fb6d3 30%,
+                    #e01c46 30%,
+                    #e01c46 35%,
+                    #1fb6d3 35%,
+                    #1fb6d3 70%,
+                    #e01c46 70%,
+                    #e01c46 75%,
+                    #1fb6d3 75%,
+                    #1fb6d3 100%
+                );
+                margin-bottom: 1rem;
+            }
+
+            .university-logo {
+                width: 90px;
+                margin: 10px auto;
+                display: block;
+            }
+
+            .certificate-title {
+                font-size: 28px;
+                font-weight: 600;
+                color: #064566;
+            }
+
+            .student-name {
+                font-size: 32px;
+                font-weight: 700;
+                color: #b8860b;
+                margin: 0.25rem 0;
+                border-bottom: 2px solid #b8860b;
+                display: inline-block;
+            }
+
+            .certificate-text {
+                line-height: 2;
+                font-size: 18px;
+                margin: 20px 0;
+            }
+
+            .signature-section {
+                margin-top: 2rem;
+            }
+
+            .signature {
+                text-align: center;
+            }
+
+            .signature-line {
+                border-top: 1px solid #333;
+            }
+
+            .seal {
+                width: 90px;
+            }
+
+            .no-print {
+                text-align: center;
+                margin: 1rem 0;
+            }
+
+            @media print {
+                body {
+                    background: white;
+                }
+
+                .no-print {
+                    display: none;
+                }
+
+                .certificate-wrapper {
+                    box-shadow: none;
+                    margin: 0;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="certificate-wrapper text-center">
+            <!-- Decorative Bar -->
+            <div class="top-bar"></div>
+
+            <!-- University Header -->
+            <img
+                src="/assets/images/HU-logo.png"
+                class="university-logo"
+                alt="HU Logo"
+            />
+
+            <h4 class="text-hu-primary">جامعة الغردقة</h4>
+            <h5 class="text-hu-primary">HURGHADA UNIVERSITY</h5>
+
+            <p class="mt-3">
+                بالنيابة عن أسرة جامعة الغردقة تُقدم هذه الشهادة إلى
+            </p>
+
+            <!-- Editable Name -->
+            <input
+                type="text"
+                id="nameInput"
+                class="form-control w-50 mx-auto no-print border-black"
+                placeholder="أدخل الاسم هنا"
+            />
+            <div id="studentName" class="student-name">الاسم الشخصي الكريم</div>
+
+            <div class="certificate-text">
+                لاتمامه دورة
+                <h3 id="courseTitle"></h3>
+            </div>
+
+            <!-- Signatures & Seal -->
+            <div class="row signature-section d-flex justify-content-between align-items-center">
+                <div class="col-4 signature">
+                    <div class="signature-line">
+                        أ.د / محمد عبد الملك أبو الفضل
+                    </div>
+                    <div>رئيس جامعة الغردقة</div>
+                </div>
+                <div class="col-4">
+                    <img
+                        src="/assets/images/HU-seal.jpg"
+                        class="seal"
+                        alt="University Seal"
+                    />
+                </div>
+                <div class="col-4 signature">
+                    <div class="signature-line">أ.د / شريف عبد الفتاح</div>
+                    <div>النائب الأكاديمي والوظيفي</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-print text-center">
+            <button class="btn btn-primary" onclick="updateName()">
+                تحديث الاسم
+            </button>
+            <button class="btn btn-success" onclick="window.print()">
+                طباعة الشهادة
+            </button>
+        </div>
+
+        <!-- Certificate data resolver -->
+        <script src="/assets/js/certificate.js"></script>
+    </body>
+</html>
