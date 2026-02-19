@@ -79,6 +79,7 @@ header {
 .form-box {
     background-color: #f4f5f9;
     padding: 30px 40px;
+    border: 0.25rem solid rgba(0, 0, 0, 0.5);
     border-radius: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: 100%;

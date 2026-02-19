@@ -1,8 +1,4 @@
 // Renders courses on the home page into ongoing and upcoming sections.
-// - Fetches assets/data/courses.json and assets/data/instructors.json
-// - Renders bootstrap-styled course cards
-// - Provides a simple search that filters by course title
-
 (function () {
     const coursesPath = "/assets/data/courses.json";
     const instructorsPath = "/assets/data/instructors.json";
@@ -39,7 +35,7 @@
         course,
         instructor,
         completedCount,
-        nextSession
+        nextSession,
     ) {
         const wrapper = document.createElement("div");
         wrapper.className = "mb-4";
@@ -68,7 +64,6 @@
         const meta = document.createElement("div");
         meta.className = "small text-black mb-2";
 
-        // Status badge consistent with other pages
         const statusText = course ? course.status || "" : "";
         const status = (statusText || "").toLowerCase();
         const statusContainer = document.createElement("div");
@@ -79,8 +74,8 @@
             status === "ongoing"
                 ? "badge-hu-info badge rounded-pill px-2"
                 : status === "completed"
-                ? "badge-hu-success badge rounded-pill px-2"
-                : "badge-hu-warning badge rounded-pill px-2";
+                  ? "badge-hu-success badge rounded-pill px-2"
+                  : "badge-hu-warning badge rounded-pill px-2";
         statusSpan.textContent = statusText;
         statusContainer.appendChild(statusStrong);
         statusContainer.appendChild(document.createTextNode(" "));
@@ -92,7 +87,7 @@
         startStrong.textContent = "تاريخ البدء:";
         startContainer.appendChild(startStrong);
         startContainer.appendChild(
-            document.createTextNode(" " + formatDate(course.start_date))
+            document.createTextNode(" " + formatDate(course.start_date)),
         );
 
         const sessionsContainer = document.createElement("div");
@@ -100,7 +95,7 @@
         sessionsStrong.textContent = "الجلسات:";
         sessionsContainer.appendChild(sessionsStrong);
         sessionsContainer.appendChild(
-            document.createTextNode(" " + (course.sessions || ""))
+            document.createTextNode(" " + (course.sessions || "")),
         );
         sessionsContainer.appendChild(document.createTextNode(" \u00A0 "));
         const instStrong = document.createElement("strong");
@@ -108,8 +103,8 @@
         sessionsContainer.appendChild(instStrong);
         sessionsContainer.appendChild(
             document.createTextNode(
-                " " + (instructor ? instructor.name : "TBA")
-            )
+                " " + (instructor ? instructor.name : "TBA"),
+            ),
         );
 
         meta.appendChild(statusContainer);
@@ -155,30 +150,29 @@
 
         const [courses, instructors, sessions] = await Promise.all([
             Promise.resolve(
-                localCourses || fetch(coursesPath).then((r) => r.json())
+                localCourses || fetch(coursesPath).then((r) => r.json()),
             ),
             Promise.resolve(
-                localInstructors || fetch(instructorsPath).then((r) => r.json())
+                localInstructors ||
+                    fetch(instructorsPath).then((r) => r.json()),
             ),
             Promise.resolve(
                 localSessions ||
                     fetch(sessionsPath)
                         .then((r) => r.json())
-                        .catch(() => [])
+                        .catch(() => []),
             ),
         ]);
 
         return [courses || [], instructors || [], sessions || []];
     }
 
-    // main
     (async function () {
         if (!enrolledContainer && !upcomingContainer) return;
         try {
             const [courses, instructors, sessions] = await loadData();
             const iMap = instructorMap(instructors || []);
 
-            // get enrolled set via auth helper or fallback to localStorage keys
             let enrolledSet = new Set();
             try {
                 if (
@@ -189,52 +183,31 @@
                     enrolledSet =
                         await window.auth.getEnrolledSetForCurrentUser();
                 } else {
-                    const raw =
-                        localStorage.getItem("enrollments") ||
-                        localStorage.getItem("enrollment");
+                    const raw = localStorage.getItem("enrollments");
                     if (raw) {
                         try {
                             const parsed = JSON.parse(raw);
-                            const curr = window.auth
-                                ? window.auth.getCurrentUserId()
-                                : null;
+                            const curr = localStorage.getItem("currentUser");
                             if (Array.isArray(parsed) && curr) {
                                 parsed.forEach((en) => {
-                                    if (!en) return;
-                                    const sid =
-                                        en.student_id != null
-                                            ? String(en.student_id)
-                                            : null;
-                                    const cid =
-                                        en.course_id != null
-                                            ? String(en.course_id)
-                                            : null;
-                                    if (
-                                        sid &&
-                                        cid &&
-                                        String(sid) === String(curr)
-                                    )
-                                        enrolledSet.add(cid);
+                                    if (String(en.student_id) === String(curr))
+                                        enrolledSet.add(String(en.course_id));
                                 });
                             }
-                        } catch (e) {
-                            /* ignore */
-                        }
+                        } catch (e) {}
                     }
                 }
             } catch (e) {
                 console.debug(
                     "mycourses.js: failed to compute enrolled set",
-                    e
+                    e,
                 );
             }
 
-            // pick enrolled courses only
             const enrolledCourses = (courses || []).filter((c) =>
-                enrolledSet.has(String(c.id))
+                enrolledSet.has(String(c.id)),
             );
 
-            // build sessions map by course
             const sessionsByCourse = {};
             (sessions || []).forEach((s) => {
                 const cid = String(s.course_id);
@@ -242,12 +215,11 @@
                 sessionsByCourse[cid].push(s);
             });
 
-            // render enrolled courses
             if (enrolledContainer) {
                 enrolledContainer.innerHTML = "";
                 if (enrolledCourses.length === 0) {
                     enrolledContainer.innerHTML =
-                        '<div class="text-muted">لست مسجلاً في أي دورة.</div>';
+                        '<div class="text-black">لست مسجلاً في أي دورة.</div>';
                 } else {
                     enrolledCourses.forEach((c) => {
                         const inst = iMap[c.instructor_id];
@@ -255,7 +227,7 @@
                             sessionsByCourse[String(c.id)] || [];
                         const completedCount = courseSessions.filter(
                             (s) =>
-                                (s.status || "").toLowerCase() === "completed"
+                                (s.status || "").toLowerCase() === "completed",
                         ).length;
                         const now = new Date();
                         const upcoming = courseSessions
@@ -270,7 +242,7 @@
                                 }
                             })
                             .sort(
-                                (a, b) => new Date(a.date) - new Date(b.date)
+                                (a, b) => new Date(a.date) - new Date(b.date),
                             );
                         const nextSession = upcoming.length
                             ? upcoming[0]
@@ -280,14 +252,13 @@
                                 c,
                                 inst,
                                 completedCount,
-                                nextSession
-                            )
+                                nextSession,
+                            ),
                         );
                     });
                 }
             }
 
-            // render upcoming sessions for enrolled courses
             if (upcomingContainer) {
                 upcomingContainer.innerHTML = "";
                 const now = new Date();
@@ -306,11 +277,11 @@
 
                 if (upcomingAll.length === 0) {
                     upcomingContainer.innerHTML =
-                        '<div class="text-muted">لا توجد جلسات قادمة.</div>';
+                        '<div class="text-black">لا توجد جلسات قادمة.</div>';
                 } else {
                     upcomingAll.slice(0, 6).forEach((s) => {
                         const course = (courses || []).find(
-                            (c) => String(c.id) === String(s.course_id)
+                            (c) => String(c.id) === String(s.course_id),
                         );
                         const card = document.createElement("div");
                         card.className = "mb-2 p-2 border rounded bg-white";
@@ -319,10 +290,10 @@
                         }</div>
                             <div class="small text-black">${s.title || ""}</div>
                             <div class="small text-black">${formatDate(
-                                s.date
+                                s.date,
                             )} · ${s.start_time || ""} · ${
-                            s.location || ""
-                        }</div>`;
+                                s.location || ""
+                            }</div>`;
                         upcomingContainer.appendChild(card);
                     });
                 }

@@ -46,7 +46,7 @@
             const res = await fetch(enrollmentPath);
             if (res && res.ok) server = await res.json();
         } catch (e) {
-            // ignore
+            console.error("Failed to load server enrollments", e);
         }
 
         // load local overrides
@@ -78,16 +78,72 @@
 
     async function getEnrolledSetForCurrentUser() {
         const curr = getCurrentUserId();
+        if (!curr) return new Set();
+
         const merged = await loadEnrollmentsMerged();
         const set = new Set();
         (merged || []).forEach((en) => {
             if (!en) return;
             const sid = en.student_id != null ? String(en.student_id) : null;
             const cid = en.course_id != null ? String(en.course_id) : null;
-            if (sid && cid && curr && String(sid) === String(curr))
-                set.add(cid);
+            if (sid && cid && String(sid) === String(curr)) set.add(cid);
         });
         return set;
+    }
+
+    async function persistEnrollment(studentId, courseId) {
+        if (!studentId || !courseId) return null;
+
+        // 1. Load merged enrollments to check for duplicates and find the correct Max ID
+        //    This prevents ID collisions between static JSON IDs (e.g. 1..6) and new local IDs.
+        const all = await loadEnrollmentsMerged();
+
+        // Check duplicate
+        const exists = all.find(
+            (e) =>
+                String(e.student_id) === String(studentId) &&
+                String(e.course_id) === String(courseId),
+        );
+        if (exists) return exists;
+
+        // Calculate next ID based on BOTH server and local data
+        const maxId = all.reduce(
+            (max, it) => Math.max(max, Number(it.id || 0)),
+            0,
+        );
+        const nextId = maxId + 1;
+
+        const newEnroll = {
+            id: nextId,
+            student_id: isFinite(Number(studentId))
+                ? Number(studentId)
+                : studentId,
+            course_id: isFinite(Number(courseId)) ? Number(courseId) : courseId,
+            enrollment_date: new Date().toISOString().slice(0, 10),
+        };
+
+        // 2. Save only to local storage "enrollments" array
+        //    We append the new valid entry to whatever is currently in localStorage.
+        let localArr = [];
+        try {
+            const raw = localStorage.getItem("enrollments");
+            if (raw) localArr = JSON.parse(raw);
+            if (!Array.isArray(localArr)) localArr = [];
+        } catch (e) {
+            localArr = [];
+        }
+
+        localArr.push(newEnroll);
+        localStorage.setItem("enrollments", JSON.stringify(localArr));
+
+        // Notify other scripts
+        try {
+            window.dispatchEvent(new Event("enrollmentsUpdated"));
+        } catch (e) {
+            /* ignore */
+        }
+
+        return newEnroll;
     }
 
     // expose
@@ -95,5 +151,6 @@
         getCurrentUserId,
         loadEnrollmentsMerged,
         getEnrolledSetForCurrentUser,
+        persistEnrollment,
     };
 })();

@@ -36,6 +36,26 @@
                     link.classList.remove("active");
                 }
             });
+
+            // Wire sign out button to clear auth and redirect.
+            // The header include may render an <a> or <button> with id="signOutBtn".
+            const signOutBtn = document.getElementById("signOutBtn");
+            if (signOutBtn) {
+                signOutBtn.addEventListener("click", function (e) {
+                    // If it's an anchor, prevent default navigation so we can clear storage first.
+                    if (e && typeof e.preventDefault === "function") e.preventDefault();
+
+                    try {
+                        localStorage.removeItem("currentUser");
+                        localStorage.removeItem("student");
+                    } catch (err) {
+                        // ignore
+                    }
+
+                    // Redirect to the login page
+                    window.location.href = "/index.html";
+                });
+            }
         })
         .catch((err) => {
             // Keep errors quiet but log for debugging
