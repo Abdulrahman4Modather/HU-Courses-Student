@@ -48,7 +48,7 @@ h6 {
     color: var(--hu-dark);
 }
 
-/* Search results module (autocomplete / suggestions) */
+/* ---------- 3. Search results module (autocomplete / suggestions) ---------- */
 .search-wrapper {
     position: relative;
     /* ensures the module positions relative to the search input */
@@ -121,7 +121,7 @@ a:hover {
     color: var(--hu-info);
 }
 
-/* ---------- 3. Navbar ---------- */
+/* ---------- 4. Navbar ---------- */
 .navbar.bg-hu {
     background-color: var(--hu-primary) !important;
 }
@@ -138,19 +138,6 @@ a:hover {
 .brand-ar {
     font-family: var(--hu-font-ar);
     font-size: 2rem;
-}
-
-/* ---------- 4. Sidebar ---------- */
-aside {
-    background-color: var(--hu-dark);
-    min-height: 84.77vh;
-}
-
-.sidebar {
-    background-color: var(--hu-dark);
-    color: #fff;
-    padding: 1rem;
-    position: fixed;
 }
 
 .nav-link {
@@ -170,54 +157,7 @@ aside {
     font-weight: 600;
 }
 
-/* ---------- 5. Cards ---------- */
-.card {
-    border-radius: var(--hu-radius);
-    box-shadow: var(--hu-shadow);
-    border: none;
-    width: 100%;
-    color: #fff;
-}
-
-.card-pending {
-    background-color: var(--hu-danger);
-}
-
-.card-in_progress {
-    background-color: var(--hu-info);
-}
-
-.card-resolved {
-    background-color: var(--hu-success);
-}
-
-.card_header {
-    font-weight: 600;
-    color: #fff;
-}
-
-.card-body {
-    background-color: #fff;
-}
-
-/* KPI cards */
-.kpi-card {
-    border-left: 4px solid var(--hu-info);
-}
-
-.kpi-card.success {
-    border-left-color: var(--hu-success);
-}
-
-.kpi-card.warning {
-    border-left-color: var(--hu-warning);
-}
-
-.kpi-card.danger {
-    border-left-color: var(--hu-danger);
-}
-
-/* ---------- 6. Buttons ---------- */
+/* ---------- 5. Buttons ---------- */
 .btn-primary {
     background-color: var(--hu-dark);
     border: none;
@@ -237,27 +177,7 @@ aside {
     color: var(--hu-primary);
 }
 
-/* .btn-warning:hover {
-    background-color: #efa209;
-    border-color: #efa209;
-} */
-
-/* ---------- 7. Tables ---------- */
-.table thead {
-    background-color: var(--hu-light);
-    color: var(--hu-primary);
-    font-weight: 600;
-}
-
-.table-striped>tbody>tr:nth-of-type(odd)>* {
-    background-color: rgba(97, 201, 219, 0.03);
-}
-
-.table-hover tbody tr:hover {
-    background-color: rgba(97, 201, 219, 0.1);
-}
-
-/* Status badges */
+/* ---------- 6. Status badges ---------- */
 .badge-hu-warning {
     background-color: var(--hu-warning);
     color: #fff;
@@ -273,19 +193,14 @@ aside {
     color: #fff;
 }
 
-.badge-hu-danger {
-    background-color: var(--hu-danger);
-    color: #fff;
-}
-
-/* ---------- 8. Forms ---------- */
+/* ---------- 7. Forms ---------- */
 .form-control:focus,
 .form-select:focus {
     border-color: var(--hu-info);
     box-shadow: 0 0 0 0.2rem rgba(97, 201, 219, 0.25);
 }
 
-/* ---------- 9. Utility Classes ---------- */
+/* ---------- 8. Utility Classes ---------- */
 .text-hu-primary {
     color: var(--hu-primary) !important;
 }
@@ -294,54 +209,17 @@ aside {
     color: var(--hu-info) !important;
 }
 
-.text-hu-danger {
-    color: var(--hu-danger) !important;
-}
-
-.text-hu-success {
-    color: var(--hu-success) !important;
-}
-
-.text-hu-warning {
-    color: var(--hu-warning) !important;
-}
-
-.bg-hu-primary {
-    background-color: var(--hu-primary) !important;
-}
-
-.bg-hu-info {
-    background-color: var(--hu-info) !important;
-}
-
-.bg-hu-dark {
-    background-color: var(--hu-dark) !important;
-}
-
 .bg-hu-semi-light {
     background-color: var(--hu-semi-light) !important;
 }
 
-.bg-hu-light {
-    background-color: var(--hu-light) !important;
-}
-
-.rounded-hu {
-    border-radius: var(--hu-radius) !important;
-}
-
-.shadow-hu {
-    box-shadow: var(--hu-shadow) !important;
-}
-
-/* ---------- 10. Responsive tweaks ---------- */
+/* ---------- 9. Responsive tweaks ---------- */
 @media (max-width: 991px) {
     .navbar>.container-fluid {
         flex-wrap: wrap;
         row-gap: 1rem;
     }
 
-    .linksContainer,
     .navbar .flex-fill {
         /* Make links break to new line and centered */
         width: 100%;
@@ -359,38 +237,16 @@ aside {
     }
 }
 
-/* ---------- 11. Equal-width helper for dashboard second row ---------- */
-.equal-row .col-12.col-lg-6 {
-    display: flex;
-}
-
-.equal-row .col-12.col-lg-6>* {
-    /* Make the inner section take the full column space */
-    flex: 1 1 auto;
-}
-
-/* ---------- 12.Dashboard chart sizing: keep charts compact on the dashboard ----------*/
-.chart {
-    height: 350px;
-    /* reduce default chart height to make it smaller */
-}
-
-.chart canvas {
-    width: 100% !important;
-    height: 100% !important;
-    /* Chart.js will fill the parent when maintainAspectRatio=false */
-    max-height: 350px;
-}
-
-/* ---------- Course card helpers ---------- */
+/* ---------- 10. Course card helpers ---------- */
 .course-col {
     display: flex;
 }
 
 .course-col .card {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    border: none;
     border-radius: var(--hu-radius);
     /* ensure equal-height cards */
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -438,11 +294,10 @@ aside {
     /* push buttons to bottom so cards align */
 }
 
-/* ---------- 13. Tabs Customization ---------- */
+/* ---------- 11. Tabs Customization ---------- */
 .nav-tabs .nav-link {
     background-color: var(--hu-light);
     color: var(--hu-dark);
-    /* border: 1px solid #dee2e6; */
     margin-left: 4px;
     /* RTL spacing */
     transition: all 0.2s ease-in-out;
@@ -460,7 +315,7 @@ aside {
     border-color: var(--hu-primary);
 }
 
-/* 14. Footer */
+/* ---------- 12. Footer ---------- */
 .footer {
     padding: 60px 100px 20px;
     color: #fff;
@@ -470,13 +325,6 @@ aside {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
-}
-
-.footer__links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px;
 }
 
 .column-title {

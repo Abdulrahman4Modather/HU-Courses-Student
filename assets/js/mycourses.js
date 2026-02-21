@@ -41,10 +41,11 @@
         wrapper.className = "mb-4";
 
         const card = document.createElement("div");
-        card.className = "d-flex rounded border p-3 bg-white";
+        card.className =
+            "d-flex justify-content-between align-items-center gap-2 rounded border bg-white";
 
         const img = document.createElement("div");
-        img.className = "me-3 flex-shrink-0";
+        img.className = "flex-shrink-0";
         img.style.width = "260px";
         img.style.height = "140px";
         img.style.background = "#f0f0f0";

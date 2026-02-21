@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const idx = students.findIndex(
                         (s) =>
                             String(s.nationalId) === String(ov.nationalId) ||
-                            (s.email && s.email === ov.email)
+                            (s.email && s.email === ov.email),
                     );
                     if (idx >= 0)
                         students[idx] = Object.assign({}, students[idx], ov);
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? students.find(
               (a) =>
                   String(a.nationalId) === String(userId) ||
-                  (a.email && a.email === userId)
+                  (a.email && a.email === userId),
           )
         : null;
     if (!student) {
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (local.length) {
                     const map = new Map();
                     (enrollments || []).forEach((e) =>
-                        map.set(String(e.id), e)
+                        map.set(String(e.id), e),
                     );
                     local.forEach((e) => {
                         if (e && e.id != null) map.set(String(e.id), e);
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             map.set(
                                 "__local_" +
                                     Math.random().toString(36).slice(2),
-                                e
+                                e,
                             );
                     });
                     enrollments = Array.from(map.values());
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // filter for current student
         const myEnrolls = (enrollments || []).filter(
-            (en) => String(en.student_id) === String(student.nationalId)
+            (en) => String(en.student_id) === String(student.nationalId),
         );
 
         // load courses map to get course names and statuses
@@ -206,8 +206,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 status === "ongoing"
                     ? "badge-hu-info badge rounded-pill px-2"
                     : status === "completed"
-                    ? "badge-hu-success badge rounded-pill px-2"
-                    : "badge-hu-warning badge rounded-pill px-2";
+                      ? "badge-hu-success badge rounded-pill px-2"
+                      : "badge-hu-warning badge rounded-pill px-2";
             span.textContent = course ? course.status || "" : "";
             statusTd.appendChild(span);
 
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const view = document.createElement("a");
             view.className = "btn btn-sm btn-primary";
             view.href = `/course/view.html?id=${encodeURIComponent(
-                en.course_id
+                en.course_id,
             )}`;
             view.textContent = "عرض";
             actionTd.appendChild(view);
@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const idx = localStudents.findIndex(
                     (s) =>
                         (s.nationalId || "").toString() ===
-                        (student.nationalId || "").toString()
+                        (student.nationalId || "").toString(),
                 );
                 if (idx >= 0) {
                     localStudents[idx] = student;
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     JSON.stringify({
                         id: student.nationalId,
                         name: student.name,
-                    })
+                    }),
                 );
             } catch (err) {
                 console.warn("Failed to persist student changes locally", err);

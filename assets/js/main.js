@@ -43,7 +43,8 @@
             if (signOutBtn) {
                 signOutBtn.addEventListener("click", function (e) {
                     // If it's an anchor, prevent default navigation so we can clear storage first.
-                    if (e && typeof e.preventDefault === "function") e.preventDefault();
+                    if (e && typeof e.preventDefault === "function")
+                        e.preventDefault();
 
                     try {
                         localStorage.removeItem("currentUser");
