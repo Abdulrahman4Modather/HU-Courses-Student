@@ -95,8 +95,9 @@
                         <div class="col-md-2"><strong>المجال:</strong>${course.field || ""}</div>
                         <div class="col-md-2"><strong>الحالة:</strong>${course.status || ""}</div>
                         <div class="col-md-2"><strong>تاريخ البدء:</strong>${formatDate(course.start_date) || ""}</div>
-                        <div class="col-md-1"><strong>الجلسات:</strong>${course.sessions || ""}</div>
-                        <div class="col-md-3"><strong>الجلسات المكتملة:</strong>${completedSessionsCount}</div>
+                        <div class="col-md-2"><strong>الجلسات:</strong>${course.sessions || ""}</div>
+                        <div class="col-md-2"><strong>الجلسات المكتملة:</strong>${completedSessionsCount}</div>
+                        <div class="col-md-2"><strong>السعر:</strong>${course.price + "جم" || "TBA"}</div>
                     </div>
                     <div class="mt-2"><strong>المحاضر:</strong> ${instructor ? instructor.name : "TBA"}</div>
                 </div>

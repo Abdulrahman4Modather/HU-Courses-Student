@@ -83,6 +83,7 @@
         meta.appendChild(
             document.createTextNode(" " + formatDate(course.start_date)),
         );
+
         meta.appendChild(document.createTextNode(" \u00A0 "));
         meta.appendChild(document.createElement("br"));
 
@@ -92,6 +93,7 @@
         meta.appendChild(
             document.createTextNode(" " + (course.sessions || "")),
         );
+
         meta.appendChild(document.createTextNode(" \u00A0 "));
         const instStrong = document.createElement("strong");
         instStrong.textContent = "المحاضر:";
@@ -99,6 +101,16 @@
         meta.appendChild(
             document.createTextNode(
                 " " + (instructor ? instructor.name : "TBA"),
+            ),
+        );
+
+        meta.appendChild(document.createTextNode(" \u00A0 "));
+        const priceStrong = document.createElement("strong");
+        priceStrong.textContent = "السعر:";
+        meta.appendChild(priceStrong);
+        meta.appendChild(
+            document.createTextNode(
+                " " + (course ? course.price + "جم" : "TBA"),
             ),
         );
 

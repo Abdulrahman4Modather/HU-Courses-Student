@@ -196,6 +196,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ? course.title
                 : `Course ${en.course_id}`;
 
+            const priceTd = document.createElement("td");
+            priceTd.textContent = course ? course.price + " جم" : `N/A`;
+
             const dateTd = document.createElement("td");
             dateTd.textContent = en.enrollment_date || "";
 
@@ -221,6 +224,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             actionTd.appendChild(view);
 
             tr.appendChild(nameTd);
+            tr.appendChild(priceTd);
             tr.appendChild(dateTd);
             tr.appendChild(statusTd);
             tr.appendChild(actionTd);
