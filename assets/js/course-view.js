@@ -61,6 +61,7 @@
     ) {
         const statusLower = ((course && course.status) || "").toLowerCase();
         const isCompleted = statusLower === "completed";
+        const isUpcoming = statusLower === "upcoming";
 
         // Enroll button text and state
         let enrollLabel = "سجل الآن";
@@ -72,6 +73,11 @@
             disabledAttr = "disabled";
         } else if (isCompleted) {
             // course already completed and user is not enrolled -> disable enroll
+            enrollLabel = "مغلقة";
+            enrollClass = "btn btn-secondary disabled";
+            disabledAttr = "disabled";
+        } else if (isUpcoming) {
+            // course not open and user is not enrolled -> disable enroll
             enrollLabel = "مغلقة";
             enrollClass = "btn btn-secondary disabled";
             disabledAttr = "disabled";
@@ -116,19 +122,24 @@
         courseDescription.innerHTML = html;
     }
 
-    function createSessionItem(s) {
+    function createSessionItem(s, isEnrolled) {
         const itm = document.createElement("div");
         itm.className =
-            "list-group-item d-flex justify-content-between align-items-start";
+            "list-group-item d-flex justify-content-between align-items-center";
+        // If session is completed, add a play button that links to the session page
+        const isCompleted = (s.status || "").toLowerCase() === "completed";
+        const showPlay = isCompleted && isEnrolled;
+
         itm.innerHTML = `
             <div>
                 <div class="fw-semibold">${s.title}</div>
                 <div class="small">${formatDate(s.date)} · ${
                     s.start_time || ""
-                } · ${s.location || ""}</div>
-            </div>
-            <div class="text-end">
-                <div class="small">${s.status || ""}</div>
+                } · ${s.location || ""} · ${s.status || ""}</div>
+
+                </div>
+            <div class="text-end d-flex flex-column align-items-center">
+            ${showPlay ? `<a class="btn btn-primary" href="/course/session-view.html?id=${encodeURIComponent(String(s.id))}"><i class="fa fa-play "> تشغيل الجلسة</i></a>` : ""}
             </div>
         `;
         return itm;
@@ -144,7 +155,7 @@
         }</div><div class="small">${m.type || ""}</div>`;
         const right = document.createElement("div");
         const btn = document.createElement("a");
-        btn.className = "btn btn-sm btn-primary";
+        btn.className = "btn btn-primary";
         btn.textContent = "تحميل";
         btn.href = m.file || "#";
         if (disabled) {
@@ -297,7 +308,7 @@
                     "<div>لا توجد جلسات متاحة لهذه الدورة.</div>";
             } else {
                 courseSessions.forEach((s) =>
-                    sessionsList.appendChild(createSessionItem(s)),
+                    sessionsList.appendChild(createSessionItem(s, isEnrolled)),
                 );
             }
 
@@ -425,6 +436,18 @@
                                 createMaterialItem(m, false),
                             ),
                         );
+                    }
+
+                    // re-render sessions so play buttons appear now that the user enrolled
+                    try {
+                        sessionsList.innerHTML = "";
+                        courseSessions.forEach((s) =>
+                            sessionsList.appendChild(
+                                createSessionItem(s, isEnrolled),
+                            ),
+                        );
+                    } catch (e) {
+                        /* ignore re-render errors */
                     }
 
                     // wire print certificate button if present (use the newly created enrollment id)

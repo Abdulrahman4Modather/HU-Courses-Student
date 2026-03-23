@@ -63,7 +63,7 @@
         title.textContent = course.title;
 
         const meta = document.createElement("div");
-        meta.className = "small text-black mb-2";
+        meta.className = "small mb-2";
 
         const statusText = course ? course.status || "" : "";
         const status = (statusText || "").toLowerCase();
@@ -113,7 +113,7 @@
         meta.appendChild(sessionsContainer);
 
         const stats = document.createElement("div");
-        stats.className = "small text-black";
+        stats.className = "small";
         stats.innerHTML = `<div>الجلسات المكتملة: <strong>${completedCount}</strong></div>
             <div>الجلسة القادمة: <strong>${
                 nextSession
@@ -220,7 +220,7 @@
                 enrolledContainer.innerHTML = "";
                 if (enrolledCourses.length === 0) {
                     enrolledContainer.innerHTML =
-                        '<div class="text-black">لست مسجلاً في أي دورة.</div>';
+                        "<div>لست مسجلاً في أي دورة.</div>";
                 } else {
                     enrolledCourses.forEach((c) => {
                         const inst = iMap[c.instructor_id];
@@ -278,7 +278,7 @@
 
                 if (upcomingAll.length === 0) {
                     upcomingContainer.innerHTML =
-                        '<div class="text-black">لا توجد جلسات قادمة.</div>';
+                        "<div>لا توجد جلسات قادمة.</div>";
                 } else {
                     upcomingAll.slice(0, 6).forEach((s) => {
                         const course = (courses || []).find(
@@ -289,8 +289,8 @@
                         card.innerHTML = `<div class="fw-semibold text-hu-primary">${
                             course ? course.title : "Course"
                         }</div>
-                            <div class="small text-black">${s.title || ""}</div>
-                            <div class="small text-black">${formatDate(
+                            <div>${s.title || ""}</div>
+                            <div>${formatDate(
                                 s.date,
                             )} · ${s.start_time || ""} · ${
                                 s.location || ""

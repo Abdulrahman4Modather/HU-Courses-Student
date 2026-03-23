@@ -7,7 +7,8 @@
         "thumbnail": "/assets/images/courses/cpp.jpg",
         "status": "completed",
         "start_date": "2025-12-01",
-        "sessions": 6
+        "sessions": 6,
+        "price": 400
     },
     {
         "id": 102,
@@ -17,7 +18,8 @@
         "thumbnail": "/assets/images/courses/node.webp",
         "status": "ongoing",
         "start_date": "2026-03-15",
-        "sessions": 7
+        "sessions": 7,
+        "price": 200
     },
     {
         "id": 103,
@@ -27,7 +29,8 @@
         "thumbnail": "/assets/images/courses/web.png",
         "status": "upcoming",
         "start_date": "2026-4-10",
-        "sessions": 10
+        "sessions": 10,
+        "price": 400
     },
     {
         "id": 201,
@@ -37,7 +40,8 @@
         "thumbnail": "/assets/images/courses/postgresql.png",
         "status": "ongoing",
         "start_date": "2026-02-15",
-        "sessions": 4
+        "sessions": 4,
+        "price": 200
     },
     {
         "id": 301,
@@ -47,6 +51,7 @@
         "thumbnail": "/assets/images/courses/english.webp",
         "status": "upcoming",
         "start_date": "2026-2-05",
-        "sessions": 8
+        "sessions": 8,
+        "price": 200
     }
 ]
